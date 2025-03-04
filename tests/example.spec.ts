@@ -2,7 +2,7 @@ import { test, expect, Browser, Page } from '@playwright/test';
 //import { chromium } from '@playwright/test';
 import { channel } from 'diagnostics_channel';
 
-test('has title', async ({page}) => {
+test.skip('has title', async ({page}) => {
 
   // const browser: Browser = await chromium.launch({channel: 'chrome'});
   // const page:Page = await browser.newPage();
@@ -14,7 +14,8 @@ test('has title', async ({page}) => {
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
+
+test.skip('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.

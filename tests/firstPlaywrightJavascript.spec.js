@@ -1,0 +1,146 @@
+const {chromium} = require('playwright');
+const { test, expect} = require('@playwright/test');
+const fs = require('fs')
+
+test('first test', async() => {
+
+
+    const browser = await chromium.launch('./dir', {  headless: false});
+
+    const context = await browser.newContext()
+    const page = await context.newPage();
+
+
+    await page.goto('https://www.amazon.in');
+
+    await page.waitForURL(/amazon/);
+
+    await expect(page).toHaveURL(/.*amazon/);
+
+    await expect(page.getByText('Mobiles')).toBeVisible();
+
+
+    /*
+    //await page.locator('input[name="username"]', {hasText: 'UserName' }).click();
+
+    //element handle way - this way dont wait for element to be visible 
+    await page.$({selector: 'input[name="username"]'}).click();
+
+    //To handle dynamic locator
+    await expect(page.locator('id^="Mobiles"')).toBeVisible();
+
+    await page.locator('select#dropdown"').selectOption('vlaue');
+
+    await page.locator('input#checkbox"').check();
+
+    //How to handle frames
+    await page.frameLocator('iframe#frame').locator('button#submit').click();
+
+    const shadownelement = await page.locator('css=element-with-shadow-dom >> shadow-root-element');
+    shadownelement.click();
+
+    */
+
+    await page.screenshot({path: './screenshot/demo.png', fullPage: true});
+
+ await page.getByText('Mobiles').screenshot({path: './screenshot/demo1.png' });
+
+
+
+ // Playwright test runnner
+
+ // 1. Parallel test execution
+ // 2. Built in auto waiting 
+ // 3. Retry
+ // 4. Assertions
+ // 5. Hooks
+
+
+ // Playwright trace viewer 
+
+ // await context.tracing.start({screenshots: true, snapshots: true});
+ //await context.tracing.stop({path: './trace'});
+
+//use :{trace 'on'}
+
+
+
+// Hooks in playwirght
+
+// 1. test.beforeAll - runs once before all tests
+//2. test.afterAll -  runs once after all tests
+// 3. test.beforeEach -  runs once before each tests
+// 4. test.afterEach -  -  runs once after each tests
+// 5. test
+
+
+// Quesion # 26 
+// Image comparison 
+
+// , #30
+// Mock network request using page.route , route.fulfill
+
+// Grouping
+// test.describe()
+// {
+//     test()
+//     {
+
+//     }
+//     test()
+//     {
+
+//     }
+// }
+
+
+await page.locator('').setInputFiles('location');
+
+
+await page.locator('').hover();
+await page.keyboard.press('Enter');
+await page.keyboard.press('Delete');
+
+
+const [downloaded] = await Promise.all([
+    page.waitForEvent('download'),
+    page.locator.click('a#downloadLink')
+])
+
+await downloaded.saveAs('path');
+
+//persist the authentication state afer loign
+
+
+/*
+//in Test 1
+await page.content().storageState({path: 'auth.json'});
+
+//in Test 2
+test.use({browserName: 'chromium', storageState: 'auth.json'}, async() => {
+await page.content().storageState({path: 'auth.json'})
+});
+
+
+
+page.bringToFront();
+
+
+
+
+
+   
+
+
+
+
+*/
+
+    await page.close()
+
+
+    await context.close();
+
+    await browser.close();
+
+})
