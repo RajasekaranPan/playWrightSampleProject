@@ -59,6 +59,220 @@ test.describe('Data-Driven Test', async () => {
 
 
 });
+
+
+test('our second test case', async ({page}) => {
+
+    await page.goto('https://jobs.citi.com/');
+
+    await page.getByPlaceholder("Search by Keyword").scrollIntoViewIfNeeded();
+     
+    await page.waitForTimeout(3000);
+
+     page.getByPlaceholder("Search by Keyword").fill("Quality").then(()=> {
+
+     page.getByPlaceholder("Search by Location").type("chennai"); }).then(()=> {
+
+    page.locator("ul.mindreader-results > li:nth-child(1) > a").click() }).then(() => {
+
+    page.locator("xpath=//button[text()='Search Jobs']").click(); })
+    .catch( (error) => {console.log("ennatha solla da: ", error)});
+    
+   
+   
+
+     await page.waitForLoadState('load');
+
+    await page.waitForURL(/search-jobs/);
+
+    await page.locator("css=section#search-results-list li:nth-child(1) > a").click();
+
+     await page.getByRole('link', {name: 'Apply Now'}).first().click();
+
+     await page.waitForURL(/myworkdayjobs/);
+
+     //await page.waitForTimeout(5000);
+
+     const keywords = testData[0].keywords;
+
+     /*
+     for(let keyword of keywords){
+     
+       
+        await page.getByTestId('email').fill(keyword);
+
+     await page.getByTestId('password').fill('Rajalove#7');
+
+     await page.getByTestId('click_filter').dblclick();
+
+     await page.getByTestId('email').clear();
+
+     }
+     */
+
+
+
+});
+
+
+test('our third test case', async ({page}) => {
+
+    await page.goto('https://jobs.citi.com/');
+
+    await page.getByPlaceholder("Search by Keyword").scrollIntoViewIfNeeded();
+     
+    await page.waitForTimeout(3000);
+
+     page.getByPlaceholder("Search by Keyword").fill("Quality").then(()=> {
+
+     page.getByPlaceholder("Search by Location").type("chennai"); }).then(()=> {
+
+    page.locator("ul.mindreader-results > li:nth-child(1) > a").click() }).then(() => {
+
+    page.locator("xpath=//button[text()='Search Jobs']").click(); })
+    .catch( (error) => {console.log("ennatha solla da: ", error)});
+    
+   
+   
+
+     await page.waitForLoadState('load');
+
+    await page.waitForURL(/search-jobs/);
+
+    await page.locator("css=section#search-results-list li:nth-child(1) > a").click();
+
+     await page.getByRole('link', {name: 'Apply Now'}).first().click();
+
+     await page.waitForURL(/myworkdayjobs/);
+
+     //await page.waitForTimeout(5000);
+
+     const keywords = testData[0].keywords;
+
+     /*
+     for(let keyword of keywords){
+     
+       
+        await page.getByTestId('email').fill(keyword);
+
+     await page.getByTestId('password').fill('Rajalove#7');
+
+     await page.getByTestId('click_filter').dblclick();
+
+     await page.getByTestId('email').clear();
+
+     }
+     */
+
+
+
+});
+
+test('our fourth test case', async ({page}) => {
+
+    await page.goto('https://jobs.citi.com/');
+
+    await page.getByPlaceholder("Search by Keyword").scrollIntoViewIfNeeded();
+     
+    await page.waitForTimeout(3000);
+
+     page.getByPlaceholder("Search by Keyword").fill("Quality").then(()=> {
+
+     page.getByPlaceholder("Search by Location").type("chennai"); }).then(()=> {
+
+    page.locator("ul.mindreader-results > li:nth-child(1) > a").click() }).then(() => {
+
+    page.locator("xpath=//button[text()='Search Jobs']").click(); })
+    .catch( (error) => {console.log("ennatha solla da: ", error)});
+    
+   
+   
+
+     await page.waitForLoadState('load');
+
+    await page.waitForURL(/search-jobs/);
+
+    await page.locator("css=section#search-results-list li:nth-child(1) > a").click();
+
+     await page.getByRole('link', {name: 'Apply Now'}).first().click();
+
+     await page.waitForURL(/myworkdayjobs/);
+
+     //await page.waitForTimeout(5000);
+
+     const keywords = testData[0].keywords;
+
+     /*
+     for(let keyword of keywords){
+     
+       
+        await page.getByTestId('email').fill(keyword);
+
+     await page.getByTestId('password').fill('Rajalove#7');
+
+     await page.getByTestId('click_filter').dblclick();
+
+     await page.getByTestId('email').clear();
+
+     }
+     */
+
+
+
+});
+
+test('our fifth test case', async ({page}) => {
+
+    await page.goto('https://jobs.citi.com/');
+
+    await page.getByPlaceholder("Search by Keyword").scrollIntoViewIfNeeded();
+     
+    await page.waitForTimeout(3000);
+
+     page.getByPlaceholder("Search by Keyword").fill("Quality").then(()=> {
+
+     page.getByPlaceholder("Search by Location").type("chennai"); }).then(()=> {
+
+    page.locator("ul.mindreader-results > li:nth-child(1) > a").click() }).then(() => {
+
+    page.locator("xpath=//button[text()='Search Jobs']").click(); })
+    .catch( (error) => {console.log("ennatha solla da: ", error)});
+    
+   
+   
+
+     await page.waitForLoadState('load');
+
+    await page.waitForURL(/search-jobs/);
+
+    await page.locator("css=section#search-results-list li:nth-child(1) > a").click();
+
+     await page.getByRole('link', {name: 'Apply Now'}).first().click();
+
+     await page.waitForURL(/myworkdayjobs/);
+
+     //await page.waitForTimeout(5000);
+
+     const keywords = testData[0].keywords;
+
+     /*
+     for(let keyword of keywords){
+     
+       
+        await page.getByTestId('email').fill(keyword);
+
+     await page.getByTestId('password').fill('Rajalove#7');
+
+     await page.getByTestId('click_filter').dblclick();
+
+     await page.getByTestId('email').clear();
+
+     }
+     */
+
+
+
+});
 }); //end of describe
 
 /*

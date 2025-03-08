@@ -1,7 +1,7 @@
 import { test, expect, Browser, Page } from '@playwright/test';
 //import { chromium } from '@playwright/test';
 import { channel } from 'diagnostics_channel';
-
+/*
 test.skip('has title', async ({page}) => {
 
   // const browser: Browser = await chromium.launch({channel: 'chrome'});
@@ -26,3 +26,5 @@ test.skip('get started link', async ({ page }) => {
 
   await page.screenshot({path: 'samplescreenshot.png'});
 });
+
+*/
