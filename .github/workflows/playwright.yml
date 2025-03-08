@@ -61,7 +61,7 @@ jobs:
           merge-multiple: true
 
       - name: Merge into HTML Report
-        run: npx playwright merge-reports --reporter html ./all-blob-reporter
+        run: npx playwright merge-reports --reporter html ./all-blob-reports
 
 
       - name: Upload HTML Report
