@@ -1,12 +1,4 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+
 //funtion returnUniqueChars(str: string)
 //{
 var finalCharcters = '';
@@ -40,7 +32,3 @@ for (var i = 0; i < strArray.length; i++) {
     _loop_1(i);
 }
 console.log(finalCharcters);
-console.log("--------------- Approach 2 -------------- ");
-console.log(strArray);
-var uniqueValues = __spreadArray([], new Set(strArray), true);
-console.log(uniqueValues);

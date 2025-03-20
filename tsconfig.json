@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "strict": false,
-    "module": "commonjs",
     "sourceMap": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "resolveJsonModule": true
-  }
+    "module": "ES6",
+    "strict": false,
+    //"noUnusedLocals": true,
+    //"noUnusedParameters": true,
+    //"resolveJsonModule": true,
+    "baseUrl": "./handson_typescript/"
+  },
+
+  "include": [
+      "./src/**/*",
+      "./handson_typescript/"
+  ]
 }

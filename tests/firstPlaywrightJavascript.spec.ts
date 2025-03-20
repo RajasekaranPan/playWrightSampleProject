@@ -1,15 +1,17 @@
-import {test} from '@playwright/test';
+import {test, expect} from '@playwright/test';
 
 import * as testData from './test-data/input.json';
 
 //const testDataaa = ['apple', 'banana', 'cherry']; 
 
-test.describe('Data-Driven Test', async () => {
+test.describe.skip('Data-Driven Test', async () => {
 
     
     test('our first test case', async ({page}) => {
 
     await page.goto('https://jobs.citi.com/');
+
+    await page.setExtraHTTPHeaders({Authorization: `Basic ` + btoa('username:password')});
 
     await page.getByPlaceholder("Search by Keyword").scrollIntoViewIfNeeded();
      
@@ -21,7 +23,7 @@ test.describe('Data-Driven Test', async () => {
 
     page.locator("ul.mindreader-results > li:nth-child(1) > a").click() }).then(() => {
 
-    page.locator("xpath=//button[text()='Search Jobs']").click(); })
+    page.locator("xpath=//button[text()='Search Jobs']").click({force: true}); })
     .catch( (error) => {console.log("ennatha solla da: ", error)});
     
    
@@ -281,7 +283,7 @@ const {chromium} = require('playwright');
 const { test, expect} = require('@playwright/test');
 const fs = require('fs')
 
-test('first test', async() => {
+test('javascript test', async() => {
 
 
     const browser = await chromium.launch('./storageforcache', {  headless: false});
@@ -415,3 +417,38 @@ page.bringToFront();
 
 })
 */
+
+
+
+test.only('Update test result at runtime', async ({ page }, testInfo) => {
+  await page.goto('https://example.com');
+
+  // Check an API response and decide test status
+  
+  /*
+  const response = await page.request.get('https://example.com/api/status');
+  let status = await response.text();
+
+  console.log(status);
+
+  //status = 'maintenance';
+
+  if (status === 'maintenance') {
+
+    testInfo.annotations.push({ type: 'blocked', description: 'Test skipped due to maintenance mode' });
+    testInfo.errors.push(new Error('Login button is missing!'));
+
+    test.skip();
+  }
+
+  */
+  page.on('console', msg => console.log(`Console Log: ${msg.text()}`));
+
+  await page.goto('https://amazon.in');
+  await page.evaluate(() => console.log('Hello from the browser!'));
+
+  await page.waitForTimeout(30000);
+
+
+
+});
