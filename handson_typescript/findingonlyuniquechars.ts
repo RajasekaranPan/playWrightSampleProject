@@ -63,7 +63,7 @@ console.log(finalCharcters);
 console.log("--------------- Approach 2 -------------- ");
 
 console.log(strArray);
-var uniqueValues = [...new Set(strArray)];
+//var uniqueValues = [...new Set(strArray)];
 
-console.log(uniqueValues);
+//console.log(uniqueValues);
 
