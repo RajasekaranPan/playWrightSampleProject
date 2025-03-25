@@ -34,7 +34,12 @@ for (let i = 0; i < arr.length; i++) {
         const current = arr[i]; // Pick an element
         const remaining = [...arr.slice(0, i), ...arr.slice(i + 1)]; // Exclude picked element
         const perms = permutation(remaining); // Get permutations of remaining elements
-        result.push(...perms.map(p => [current, ...p])); // Append current element to each permutation
+        result.push(
+            
+            ...perms.map(p => [current, ...p])
+        
+        
+        ); // Append current element to each permutation
     }
 
     return result;

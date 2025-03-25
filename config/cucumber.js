@@ -1,11 +1,11 @@
 module.exports = {
     default: {
-        tags: process.env.npm_config_TAGS || "",
-        formatOptions: {
-            snippetInterface: "async-await"
-        },
+        // tags: process.env.npm_config_TAGS || "",
+        // formatOptions: {
+        //     snippetInterface: "async-await"
+        // },
         paths: [
-            "src/test/features/"
+            "src/test/features/login.feature"
         ],
         publishQuiet: true,
         dryRun: false,
